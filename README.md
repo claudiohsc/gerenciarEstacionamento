@@ -7,7 +7,8 @@ Seja uma empresa no ramo de gerenciamento de estacionamento particulares(prédio
 
 # Integrantes
 
-Claudio Henrique dos Santos Carvalho - 221007958
-Elias Faria de Oliveira - 221007706
-Iderlan Junio - 
-Levi Lunique - 
+Claudio Henrique dos Santos Carvalho - 221007958 <br>
+Elias Faria de Oliveira - 221007706 <br>
+Iderlan Junio -  <br>
+Levi Lunique -  <br>
+
