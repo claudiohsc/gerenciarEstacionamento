@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" modified="2023-05-22T22:43:34.898Z" agent="Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/113.0" etag="06P_-oEJHxaQRwx9ctJZ" version="21.3.2" type="google">
+  <diagram name="Página-1" id="Pl5DniZh8-CAGjoVyY45">
+    <mxGraphModel dx="1343" dy="755" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="Vb-ILrOf8YJpwC-eI-zG-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=-0.012;entryY=0.611;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="OO1yDVvhwUrPOUNdTqAm-1" target="Vb-ILrOf8YJpwC-eI-zG-1" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Vb-ILrOf8YJpwC-eI-zG-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="OO1yDVvhwUrPOUNdTqAm-1" target="Vb-ILrOf8YJpwC-eI-zG-3" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="OO1yDVvhwUrPOUNdTqAm-1" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;text-decoration:underline;&quot;&gt;&lt;b&gt;estacionamento2:Estacionamento&lt;/b&gt;&lt;/p&gt;&lt;hr&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;lotacaoMaxima = 120&lt;br&gt;&lt;/div&gt;&lt;div&gt;taxaDeFracao = 20.00&lt;br&gt;&lt;/div&gt;&lt;div&gt;taxaDeHora = 10.0&lt;br&gt;&lt;/div&gt;&lt;div&gt;taxaNoturna = 70.00&lt;br&gt;&lt;/div&gt;&lt;div&gt;horarioAbertura = &quot;00:00:00&quot;&lt;br&gt;horarioFechamento = &quot;23:59:59&quot;&lt;br&gt;&lt;/div&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;whiteSpace=wrap;" parent="1" vertex="1">
+          <mxGeometry x="370" y="86" width="200" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="Vb-ILrOf8YJpwC-eI-zG-1" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;text-decoration:underline;&quot;&gt;&lt;b&gt;v2:Veiculo&lt;/b&gt;&lt;br&gt;&lt;/p&gt;&lt;hr&gt;&lt;div&gt;placa = &quot;HI139&quot;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;horaEntrada = &quot;08:30:00&quot;&lt;br&gt;&lt;/div&gt;&lt;div&gt;horaSaida = &quot;09:30:00&quot;&lt;/div&gt;&lt;div&gt;valorAPagar = 72.00&lt;/div&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;whiteSpace=wrap;" parent="1" vertex="1">
+          <mxGeometry x="740" y="60" width="160" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="Vb-ILrOf8YJpwC-eI-zG-3" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;text-decoration:underline;&quot;&gt;&lt;b&gt;v4:Veiculo&lt;/b&gt;&lt;br&gt;&lt;/p&gt;&lt;hr&gt;&lt;div&gt;placa = &quot;AC50M&quot;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;horaEntrada = &quot;08:00:00&quot;&lt;br&gt;&lt;/div&gt;&lt;div&gt;horaSaida = &quot;18:00:00&quot;&lt;/div&gt;&lt;div&gt;valoraPagar = 72.00&lt;/div&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;whiteSpace=wrap;" parent="1" vertex="1">
+          <mxGeometry x="740" y="236" width="160" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="yDud3vsENiYkLIRhiuFF-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="yDud3vsENiYkLIRhiuFF-3" target="yDud3vsENiYkLIRhiuFF-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="yDud3vsENiYkLIRhiuFF-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="yDud3vsENiYkLIRhiuFF-3" target="yDud3vsENiYkLIRhiuFF-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="yDud3vsENiYkLIRhiuFF-3" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;text-decoration:underline;&quot;&gt;&lt;b&gt;estacionamento1 : Estacionamento&lt;/b&gt;&lt;/p&gt;&lt;hr&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;lotacaoMaxima = 300&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;taxaDeFracao = 30.00&lt;br&gt;taxaDeHora = 15.00&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;taxaDeDiaria = 120.00&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;horarioAbertura = &quot;06:00:00&quot;&lt;br&gt;horaioFechamento =&amp;nbsp; &quot;22:00:00&quot;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;&lt;br&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;whiteSpace=wrap;shadow=0;rounded=0;glass=0;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="290" y="480" width="250" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="yDud3vsENiYkLIRhiuFF-4" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;text-decoration:underline;&quot;&gt;&lt;b&gt;v1 : Veiculo&lt;/b&gt;&lt;/p&gt;&lt;hr&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;placa = RM3A9&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;horarioDeEntrada =&amp;nbsp; &quot;20:00:00&quot;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;horarioDeSaida = &quot;07:00:00&quot;&lt;br&gt;valorAPagar = 54.00&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;whiteSpace=wrap;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="730" y="450" width="200" height="115" as="geometry" />
+        </mxCell>
+        <mxCell id="yDud3vsENiYkLIRhiuFF-5" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;text-decoration:underline;&quot;&gt;&lt;b&gt;v10 : Veiculo&lt;/b&gt;&lt;/p&gt;&lt;hr&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;placa = AC50M&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;horarioDeEntrada = &quot;08:00:00&quot;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;horarioDeSaida = &quot;18:00:00&quot;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;whiteSpace=wrap;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="727" y="620" width="206" height="90" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
