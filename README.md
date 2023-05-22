@@ -11,4 +11,4 @@ Claudio Henrique dos Santos Carvalho - 221007958 <br>
 Elias Faria de Oliveira - 221007706 <br>
 Iderlan Junio -  <br>
 Levi Lunique -  <br>
-
+Vinícius Rodrigues Magalhães Leão - 211062580
