@@ -18,17 +18,44 @@ public class Estacionamento {
 	private SimpleDateFormat horaioFechamento;
 	private Double retornoContratante;
 
-	public void adicionarVeiculo() {
+	public Estacionamento() {
 
 	}
 
-	public void removerVeiculo() {
-
+	//
+	public Estacionamento(String nome, String localizacao, int lotacaoMaxima, int lotacaoAtual, Double taxaDeFracao,
+			Double taxaDeHora, Double taxaDeDiaria, Double taxaNoturna, Double taxaMensal, Double taxaDeEvento,
+			SimpleDateFormat horarioAbertura, SimpleDateFormat horaioFechamento, Double retornoContratante) {
+		super();
+		this.nome = nome;
+		this.localizacao = localizacao;
+		this.lotacaoMaxima = lotacaoMaxima;
+		this.lotacaoAtual = lotacaoAtual;
+		this.taxaDeFracao = taxaDeFracao;
+		this.taxaDeHora = taxaDeHora;
+		this.taxaDeDiaria = taxaDeDiaria;
+		this.taxaNoturna = taxaNoturna;
+		this.taxaMensal = taxaMensal;
+		this.taxaDeEvento = taxaDeEvento;
+		this.horarioAbertura = horarioAbertura;
+		this.horaioFechamento = horaioFechamento;
+		this.retornoContratante = retornoContratante;
 	}
 
-	public Boolean verificarLotacao() {
-		return null;
-		
+	public void adicionarVeiculo(Veiculo v) {
+		this.lotacaoAtual = getLotacaoAtual() + 1;
+		System.out.println("Veiculo adicionado.");
+	}
+
+	public void removerVeiculo(Veiculo v) {
+		this.lotacaoAtual = getLotacaoAtual() - 1;
+		System.out.println("Veiculo adicionado.");
+	}
+
+	public int verificarLotacao() {
+
+		return getLotacaoAtual();
+
 	}
 
 	public Double calcularTaxa() {
@@ -138,6 +165,5 @@ public class Estacionamento {
 	public void setRetornoContratante(Double retornoContratante) {
 		this.retornoContratante = retornoContratante;
 	}
-	
-	
+
 }

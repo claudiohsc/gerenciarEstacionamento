@@ -11,9 +11,9 @@ public class Veiculo {
 	private String placa;
 	private String modelo;
 	
-	private Date hoje = new Date();
+	Date hoje = new Date();
 	
-	//Locale.setDefault()
+	Locale.(new Locale("pt","Brazil"));
 	
 	String hojeFormat = DateFormat.getInstance().format(hoje);
 	
