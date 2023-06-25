@@ -3,31 +3,22 @@ package gerenciaEstacionamento;
 import java.util.Date;
 import java.text.SimpleDateFormat;
 
-
 public class Veiculo {
 
 	private String placa;
 	private String modelo;
-	
-<<<<<<< HEAD
-	Date hoje = new Date();
-	
-	Locale.(new Locale("pt","Brazil"));
-=======
-	
+
 	SimpleDateFormat formatarDataHora = new SimpleDateFormat("dd/M/yy hh:mm:ss");
->>>>>>> 2478b6c77cbd082583231e785c5d2d0bd18a0f30
-	
+
 	private String hoje = formatarDataHora.format(new Date());
-	
-		
+
 	private Boolean verificacao = false;
-	
+
 	private String horaEntrada; // "dd/mm/yy hh:mm:ss"
-	private String horaSaida;  // "dd/mm/yy hh:mm:ss"
-	
+	private String horaSaida; // "dd/mm/yy hh:mm:ss"
+
 	private float valorAPagar; // xx.xx
-	
+
 	public Veiculo(String placa, String modelo, String horaEntrada, String horaSaida, Boolean verificacao) {
 		super();
 		this.placa = placa;
@@ -37,27 +28,24 @@ public class Veiculo {
 		this.verificacao = verificacao;
 	}
 
-
 	public void entrarEstacionamento() {
-		if(this.verificacao == false) {
+		if (this.verificacao == false) {
 			this.verificacao = true;
 			System.out.println("O veículo entrou no estacionamento!");
-		}
-		else {
+		} else {
 			System.out.println("O veículo já está dentro do estacionamento!");
 		}
 	}
-	
+
 	public void sairEstacionamento() {
-		if(this.verificacao == true) {
+		if (this.verificacao == true) {
 			this.verificacao = false;
 			System.out.println("O veículo saiu do estacionamento!");
-		}
-		else {
+		} else {
 			System.out.println("O veículo já saiu do estacionamento!");
 		}
 	}
-	
+
 	public String getPlaca() {
 		return placa;
 	}
