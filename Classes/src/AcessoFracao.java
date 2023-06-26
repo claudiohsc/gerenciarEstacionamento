@@ -20,7 +20,7 @@ public class AcessoFracao extends Acesso {
         int minutosEntrada = (horaEntrada*60) + minutoEntrada;  //somatorio de minutos na entrada;
         int minutosSaida = (horaSaida*60) + minutoSaida;
 
-        int fracoes = (minutosSaida - minutosEntrada) / 60;  //encontra o numero de fracoes de horas;
+        int fracoes = (minutosSaida - minutosEntrada) / 15;  //encontra o numero de fracoes de minutos;
 
         float valor = fracoes * taxa;
 
