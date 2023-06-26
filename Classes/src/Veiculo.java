@@ -8,14 +8,14 @@ public class Veiculo {
 	private String placa;
 	private String modelo;
 
-	SimpleDateFormat formatarDataHora = new SimpleDateFormat("dd/M/yy hh:mm:ss");
+	SimpleDateFormat formatarHora = new SimpleDateFormat("hh:mm");
 
-	private String hoje = formatarDataHora.format(new Date());
+	private String hoje = formatarHora.format(new Date());
 
 	private Boolean verificacao = false;
 
-	private String horaEntrada; // "dd/mm/yy hh:mm:ss"
-	private String horaSaida; // "dd/mm/yy hh:mm:ss"
+	private String horaEntrada; // "hh:mm"
+	private String horaSaida; // "hh:mm"
 
 	private float valorAPagar; // xx.xx
 
