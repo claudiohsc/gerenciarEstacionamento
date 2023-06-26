@@ -1,16 +1,12 @@
 package gerenciaEstacionamento;
 
 import java.util.Date;
-import java.text.SimpleDateFormat;
 
 public class Veiculo {
 
 	private String placa;
 	private String modelo;
 
-	SimpleDateFormat formatarHora = new SimpleDateFormat("hh:mm");
-
-	private String hoje = formatarHora.format(new Date());
 
 	private Boolean verificacao = false;
 

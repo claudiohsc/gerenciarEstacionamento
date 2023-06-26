@@ -7,7 +7,7 @@ public class AcessoFracao extends Acesso {
 
     public void calcularTarifa(){
         Double taxa = estacionamento.getTaxaDeFracao();
-        String[] horarioEntrada = (veiculo.getHoraEntrada()).split(":"); // [hh, mm]
+        String[] horarioEntrada = (veiculo.getHoraEntrada()).split(":"); // [hh, mm];
         String[] horarioSaida = (veiculo.getHoraSaida()).split(":");
 
 
@@ -17,10 +17,10 @@ public class AcessoFracao extends Acesso {
         int horaSaida = Integer.parseInt(horarioSaida[0]);
         int minutoSaida = Integer.parseInt(horarioSaida[1]);
 
-        int minutosEntrada = (horaEntrada*60) + minutoEntrada;  //somatorio de minutos na entrada
+        int minutosEntrada = (horaEntrada*60) + minutoEntrada;  //somatorio de minutos na entrada;
         int minutosSaida = (horaSaida*60) + minutoSaida;
 
-        int fracoes = (minutosSaida - minutosEntrada) / 15;  //encontra o numero de fracoes
+        int fracoes = (minutosSaida - minutosEntrada) / 60;  //encontra o numero de fracoes de horas;
 
         float valor = fracoes * taxa;
 

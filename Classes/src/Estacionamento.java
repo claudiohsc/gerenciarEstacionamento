@@ -9,7 +9,7 @@ public class Estacionamento {
 	private int lotacaoMaxima;
 	private int lotacaoAtual;
 	private Double taxaDeFracao;
-	private Double taxaDeHora;
+	private Double taxaDeHora;  //taxa percentual de desconto;
 	private Double taxaDeDiaria;
 	private Double taxaNoturna;
 	private Double taxaMensal;
