@@ -63,10 +63,10 @@ public class MenuController {
                 }
                 break;
             case 2:
-                // Código para criar estacionamento
+                // Código para criar estacionamento (Conferir codigo em Menu View)
                 break;
             case 3:
-                // Código para criar evento
+                // Código para criar evento (Conferir codigo em Menu View)
                 break;
             default:
                 menuView.printOpcaoInvalida();
