@@ -15,11 +15,6 @@ public class GerenciadorAcesso extends Gerenciador<Acesso>{
     }
 
     @Override
-    public Acesso pesquisar(String placa) {
-        return registros.get(placa);
-    }
-
-    @Override
     public void alterar(Acesso acesso) {
         registros.put(acesso.getPlaca(), acesso);
     }

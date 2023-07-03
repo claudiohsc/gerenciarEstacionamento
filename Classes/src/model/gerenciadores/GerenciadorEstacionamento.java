@@ -1,16 +1,18 @@
 package model.gerenciadores;
 
 import model.dominio.Estacionamento;
+import view.DescricaoEmBrancoException;
+import view.ObjetoNaoEncontradoException;
 
 public class GerenciadorEstacionamento extends Gerenciador<Estacionamento>{
     @Override
-    public void criar(Estacionamento estacionamento) {
-        registros.put(estacionamento.getNome(), estacionamento);
-    }
+    public void criar(Estacionamento estacionamento) throws DescricaoEmBrancoException {
 
-    @Override
-    public Estacionamento pesquisar(String nome) {
-        return registros.get(nome);
+        if (estacionamento.getLotacaoMaxima() == 0 || estacionamento.getTaxaDeFracao() == 0.0 || estacionamento.getTaxaDeHora() == 0.0
+                || estacionamento.getTaxaDeDiaria() == 0.0 || estacionamento.getTaxaNoturna() == 0.0) {
+            throw new DescricaoEmBrancoException("Os campos obirgatórios não foram preenchidos.");
+        }
+        registros.put(estacionamento.getNome(), estacionamento);
     }
 
     @Override

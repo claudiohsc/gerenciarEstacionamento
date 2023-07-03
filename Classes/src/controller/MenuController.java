@@ -1,10 +1,13 @@
 package controller;
 
 import model.dominio.Acesso;
+import model.dominio.Estacionamento;
+import model.dominio.Evento;
 import model.gerenciadores.GerenciadorAcesso;
 import model.gerenciadores.GerenciadorEstacionamento;
 import model.gerenciadores.GerenciadorEvento;
 import view.DescricaoEmBrancoException;
+import view.ObjetoNaoEncontradoException;
 import view.MenuView;
 
 public class MenuController {
@@ -63,10 +66,20 @@ public class MenuController {
                 }
                 break;
             case 2:
-                // Código para criar estacionamento (Conferir codigo em Menu View)
+                Estacionamento estacionamento = menuView.getDetalhesDeEstacionamento();
+                try {
+                    gerenciadorEstacionamento.criar(estacionamento);
+                } catch (DescricaoEmBrancoException e) {
+                    System.out.println(e.getMessage());
+                }
                 break;
             case 3:
-                // Código para criar evento (Conferir codigo em Menu View)
+                Evento evento = menuView.getDetalhesDeEvento();
+                try {
+                    gerenciadorEvento.criar(evento);
+                } catch (DescricaoEmBrancoException e) {
+                    System.out.println(e.getMessage());
+                }
                 break;
             default:
                 menuView.printOpcaoInvalida();
@@ -78,19 +91,38 @@ public class MenuController {
         int opcaoPesquisar = menuView.getOpcaoSubMenu("pesquisa");
         switch (opcaoPesquisar) {
             case 1:
-                // Código para pesquisar acesso
+                String placa = menuView.getString("a placa do veículo para pesquisa");
+                try {
+                    Acesso acesso = gerenciadorAcesso.pesquisar(placa);
+                    System.out.println(acesso.toString());
+                } catch (ObjetoNaoEncontradoException e) {
+                    System.out.println(e.getMessage());
+                }
                 break;
             case 2:
-                // Código para pesquisar estacionamento
+                String nomeEstacionamento = menuView.getString("o nome do estacionamento para pesquisa");
+                try {
+                    Estacionamento estacionamento = gerenciadorEstacionamento.pesquisar(nomeEstacionamento);
+                    System.out.println(estacionamento.toString());
+                } catch (ObjetoNaoEncontradoException e) {
+                    System.out.println(e.getMessage());
+                }
                 break;
             case 3:
-                // Código para pesquisar evento
+                String nomeEvento = menuView.getString("o nome do evento para pesquisa");
+                try {
+                    Evento evento = gerenciadorEvento.pesquisar(nomeEvento);
+                    System.out.println(evento.toString());
+                } catch (ObjetoNaoEncontradoException e) {
+                    System.out.println(e.getMessage());
+                }
                 break;
             default:
                 menuView.printOpcaoInvalida();
                 break;
         }
     }
+
 
     private void alterar (){
         int opcaoAlterar = menuView.getOpcaoSubMenu("alteração");

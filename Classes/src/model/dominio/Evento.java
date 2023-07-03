@@ -22,4 +22,20 @@ public class Evento {
     public String getNome(){
         return nome;
     }
+
+    public LocalDate getDataInicio() {
+        return dataInicio;
+    }
+
+    public LocalDate getDataFim() {
+        return dataFim;
+    }
+
+    public LocalTime getHoraInicio() {
+        return horaInicio;
+    }
+
+    public LocalTime getHoraFim() {
+        return horaFim;
+    }
 }

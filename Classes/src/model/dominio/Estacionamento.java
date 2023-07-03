@@ -8,12 +8,12 @@ public class Estacionamento {
 	private String localizacao;
 	private int lotacaoMaxima;
 	private int lotacaoAtual;
-	private Double taxaDeFracao;
-	private Double taxaDeHora;
-	private Double taxaDeDiaria;
-	private Double taxaNoturna;
-	private Double taxaMensal;
-	private Double taxaDeEvento;
+	private double taxaDeFracao;
+	private double taxaDeHora;
+	private double taxaDeDiaria;
+	private double taxaNoturna;
+	private double taxaMensal;
+	private double taxaDeEvento;
 	private List<Veiculo> veiculos;
 
 	public Estacionamento() {
@@ -40,4 +40,43 @@ public class Estacionamento {
 		return this.nome;
 	}
 
+	public String getLocalizacao() {
+		return localizacao;
+	}
+
+	public int getLotacaoMaxima() {
+		return lotacaoMaxima;
+	}
+
+	public int getLotacaoAtual() {
+		return lotacaoAtual;
+	}
+
+	public double getTaxaDeFracao() {
+		return taxaDeFracao;
+	}
+
+	public double getTaxaDeHora() {
+		return taxaDeHora;
+	}
+
+	public double getTaxaDeDiaria() {
+		return taxaDeDiaria;
+	}
+
+	public double getTaxaNoturna() {
+		return taxaNoturna;
+	}
+
+	public double getTaxaMensal() {
+		return taxaMensal;
+	}
+
+	public double getTaxaDeEvento() {
+		return taxaDeEvento;
+	}
+
+	public List<Veiculo> getVeiculos() {
+		return veiculos;
+	}
 }
