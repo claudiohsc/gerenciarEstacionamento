@@ -1,16 +1,17 @@
 package model.dominio;
 
-import java.sql.Time;
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.LocalTime;
+
 
 public class Evento {
     private String nome;
-    private Date dataInicio;
-    private Date dataFim;
-    private Time horaInicio;
-    private Time horaFim;
+    private LocalDate dataInicio;
+    private LocalDate dataFim;
+    private LocalTime horaInicio;
+    private LocalTime horaFim;
 
-    public Evento(String nome, Date dataInicio, Date dataFim, Time horaInicio, Time horaFim) {
+    public Evento(String nome, LocalDate dataInicio, LocalDate dataFim, LocalTime horaInicio, LocalTime horaFim) {
         this.nome = nome;
         this.dataInicio = dataInicio;
         this.dataFim = dataFim;
