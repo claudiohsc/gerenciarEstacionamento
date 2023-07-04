@@ -2,6 +2,7 @@ package model.gerenciadores;
 
 import model.dominio.Evento;
 import view.DescricaoEmBrancoException;
+import view.ObjetoNaoEncontradoException;
 
 public class GerenciadorEvento extends Gerenciador<Evento>{
     @Override
@@ -19,7 +20,8 @@ public class GerenciadorEvento extends Gerenciador<Evento>{
     }
 
     @Override
-    public void excluir(String nome) {
-        registros.remove(nome);
+    public boolean excluir(String nomeEvento) throws ObjetoNaoEncontradoException {
+        Evento evento = pesquisar(nomeEvento);
+        return registros.remove(nomeEvento, evento);
     }
 }

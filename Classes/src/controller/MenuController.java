@@ -150,15 +150,34 @@ public class MenuController {
 
     private void excluir (){
         int opcaoExcluir = menuView.getOpcaoSubMenu("exclusão", "1. Acesso\n2. Estacionamento\n3. Evento");
+        boolean excluido;
         switch (opcaoExcluir) {
             case 1:
-                // Código para excluir acesso
+                String placa = menuView.getString("a placa do veículo para exclusão");
+                try {
+                    excluido = gerenciadorAcesso.excluir(placa);
+                    menuView.printResultadoExclusao(excluido, "Acesso");
+                } catch (ObjetoNaoEncontradoException e) {
+                    menuView.printExceptionMessage(e);
+                }
                 break;
             case 2:
-                // Código para excluir estacionamento
+                String nomeEstacionamento = menuView.getString("o nome do estacionamento para exclusão");
+                try {
+                    excluido = gerenciadorEstacionamento.excluir(nomeEstacionamento);
+                    menuView.printResultadoExclusao(excluido, "Estacionamento");
+                } catch (ObjetoNaoEncontradoException e) {
+                    menuView.printExceptionMessage(e);
+                }
                 break;
             case 3:
-                // Código para excluir evento
+                String nomeEvento = menuView.getString("o nome do evento para exclusão");
+                try {
+                    excluido = gerenciadorEvento.excluir(nomeEvento);
+                    menuView.printResultadoExclusao(excluido, "Evento");
+                } catch (ObjetoNaoEncontradoException e) {
+                    menuView.printExceptionMessage(e);
+                }
                 break;
             default:
                 menuView.printOpcaoInvalida();

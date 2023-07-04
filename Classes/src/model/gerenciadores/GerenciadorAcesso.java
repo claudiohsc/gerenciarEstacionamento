@@ -2,6 +2,7 @@ package model.gerenciadores;
 
 import model.dominio.Acesso;
 import view.DescricaoEmBrancoException;
+import view.ObjetoNaoEncontradoException;
 
 public class GerenciadorAcesso extends Gerenciador<Acesso>{
     @Override
@@ -20,7 +21,8 @@ public class GerenciadorAcesso extends Gerenciador<Acesso>{
     }
 
     @Override
-    public void excluir(String placa) {
-        registros.remove(placa);
+    public boolean excluir(String placa) throws ObjetoNaoEncontradoException {
+        Acesso acesso = pesquisar(placa);
+        return registros.remove(placa, acesso);
     }
 }

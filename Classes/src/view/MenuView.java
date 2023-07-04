@@ -196,4 +196,17 @@ public class MenuView {
 
     }
 
+    public void printResultadoExclusao(boolean resultado, String tipoObjeto) {
+        if(resultado) {
+            System.out.println(tipoObjeto + " excluído com sucesso!");
+        } else {
+            System.out.println("Não foi possível excluir o " + tipoObjeto.toLowerCase() + ".");
+        }
+    }
+
+    public void printExceptionMessage(ObjetoNaoEncontradoException e) {
+        System.out.println(e.getMessage());
+    }
+
+
 }

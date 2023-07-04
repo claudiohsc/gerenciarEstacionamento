@@ -18,5 +18,5 @@ public abstract class Gerenciador<T> {
         return objeto;
     }
     public abstract void alterar(T t);
-    public abstract void excluir(String campo);
+    public abstract boolean excluir(String campo);
 }

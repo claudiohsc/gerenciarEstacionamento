@@ -21,7 +21,8 @@ public class GerenciadorEstacionamento extends Gerenciador<Estacionamento>{
     }
 
     @Override
-    public void excluir(String nome) {
-        registros.remove(nome);
+    public boolean excluir(String nomeEstacionamento) throws ObjetoNaoEncontradoException {
+        Estacionamento estacionamento = pesquisar(nomeEstacionamento);
+        return registros.remove(nomeEstacionamento, estacionamento);
     }
 }
