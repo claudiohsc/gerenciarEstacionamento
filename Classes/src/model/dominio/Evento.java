@@ -38,4 +38,35 @@ public class Evento {
     public LocalTime getHoraFim() {
         return horaFim;
     }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public void setDataInicio(LocalDate dataInicio) {
+        this.dataInicio = dataInicio;
+    }
+
+    public void setDataFim(LocalDate dataFim) {
+        this.dataFim = dataFim;
+    }
+
+    public void setHoraInicio(LocalTime horaInicio) {
+        this.horaInicio = horaInicio;
+    }
+
+    public void setHoraFim(LocalTime horaFim) {
+        this.horaFim = horaFim;
+    }
+
+    @Override
+    public String toString() {
+        return "Evento {" +
+                "nome='" + nome + '\'' +
+                ", dataInicio=" + dataInicio +
+                ", dataFim=" + dataFim +
+                ", horaInicio=" + horaInicio +
+                ", horaFim=" + horaFim +
+                '}';
+    }
 }

@@ -43,4 +43,35 @@ public class Acesso {
 	public LocalTime getHoraSaida() {
 		return horaSaida;
 	}
+
+	public void setPlaca(String placa) {
+		this.placa = placa;
+	}
+
+	public void setDataEntrada(LocalDate dataEntrada) {
+		this.dataEntrada = dataEntrada;
+	}
+
+	public void setDataSaida(LocalDate dataSaida) {
+		this.dataSaida = dataSaida;
+	}
+
+	public void setHoraEntrada(LocalTime horaEntrada) {
+		this.horaEntrada = horaEntrada;
+	}
+
+	public void setHoraSaida(LocalTime horaSaida) {
+		this.horaSaida = horaSaida;
+	}
+
+	@Override
+	public String toString(){
+		return "Acesso {" +
+				"placa='" + this.getPlaca() + '\'' +
+				", dataEntrada=" + this.getDataEntrada() +
+				", dataSaida=" + this.getDataSaida() +
+				", horaEntrada='" + this.getHoraEntrada() + '\'' +
+				", horaSaida='" + this.getHoraSaida() + '\'' +
+				'}';
+	}
 }

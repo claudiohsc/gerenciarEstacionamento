@@ -79,4 +79,64 @@ public class Estacionamento {
 	public List<Veiculo> getVeiculos() {
 		return veiculos;
 	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public void setLocalizacao(String localizacao) {
+		this.localizacao = localizacao;
+	}
+
+	public void setLotacaoMaxima(int lotacaoMaxima) {
+		this.lotacaoMaxima = lotacaoMaxima;
+	}
+
+	public void setLotacaoAtual(int lotacaoAtual) {
+		this.lotacaoAtual = lotacaoAtual;
+	}
+
+	public void setTaxaDeFracao(double taxaDeFracao) {
+		this.taxaDeFracao = taxaDeFracao;
+	}
+
+	public void setTaxaDeHora(double taxaDeHora) {
+		this.taxaDeHora = taxaDeHora;
+	}
+
+	public void setTaxaDeDiaria(double taxaDeDiaria) {
+		this.taxaDeDiaria = taxaDeDiaria;
+	}
+
+	public void setTaxaNoturna(double taxaNoturna) {
+		this.taxaNoturna = taxaNoturna;
+	}
+
+	public void setTaxaMensal(double taxaMensal) {
+		this.taxaMensal = taxaMensal;
+	}
+
+	public void setTaxaDeEvento(double taxaDeEvento) {
+		this.taxaDeEvento = taxaDeEvento;
+	}
+
+	public void setVeiculos(List<Veiculo> veiculos) {
+		this.veiculos = veiculos;
+	}
+
+	@Override
+	public String toString() {
+		return "Estacionamento {" +
+				"nome='" + this.getNome() + '\'' +
+				", localizacao='" + this.getLocalizacao() + '\'' +
+				", lotacaoMaxima=" + this.getLocalizacao() +
+				", lotacaoAtual=" + this.getLotacaoAtual() +
+				", taxaDeFracao=" + this.getTaxaDeFracao() +
+				", taxaDeHora=" + this.getTaxaDeHora() +
+				", taxaDeDiaria=" + this.getTaxaDeDiaria() +
+				", taxaNoturna=" + this.getTaxaNoturna() +
+				", taxaMensal=" + this.getTaxaMensal() +
+				", taxaDeEvento=" + this.getTaxaDeEvento() +
+				'}';
+	}
 }

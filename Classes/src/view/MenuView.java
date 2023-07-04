@@ -21,17 +21,39 @@ public class MenuView {
     }
 
     public int getOpcaoMenuPrincipal(){
-        System.out.println("Menu Principal");
-        System.out.println("1. Criar\n2. Pesquisar\n3. Alterar\n4. Excluir\n5. Sair");
-        int opcao = scanner.nextInt();
+        int opcao = -1;
+        while(true) {
+            System.out.println("Menu Principal");
+            System.out.println("1. Criar\n2. Pesquisar\n3. Alterar\n4. Excluir\n5. Sair");
+            if(scanner.hasNextInt()) {
+                opcao = scanner.nextInt();
+                if(opcao > 0) {
+                    break;
+                }
+            } else {
+                scanner.nextLine();
+            }
+            printOpcaoInvalida();
+        }
         scanner.nextLine();
         return opcao;
     }
 
-    public int getOpcaoSubMenu(String tipoMenu) {
-        System.out.println("1. Acesso\n2. Estacionamento\n3. Evento");
-        System.out.println("Escolha um opção de " + tipoMenu + ":");
-        int opcao = scanner.nextInt();
+    public int getOpcaoSubMenu(String tipoMenu, String opcoes) {
+        int opcao = -1;
+        while(true) {
+            System.out.println(opcoes);
+            System.out.println("Escolha uma opção de " + tipoMenu + ":");
+            if(scanner.hasNextInt()) {
+                opcao = scanner.nextInt();
+                if(opcao > 0) {
+                    break;
+                }
+            } else {
+                scanner.nextLine();
+            }
+            printOpcaoInvalida();
+        }
         scanner.nextLine();
         return opcao;
     }
@@ -54,7 +76,7 @@ public class MenuView {
         return scanner.nextLine();
     }
 
-    private LocalDate getData(String tipo){
+    public LocalDate getData(String tipo){
         while (true){
             System.out.println("Digite a data de " + tipo + " (dd/mm/aaaa): ");
             String dataStr = scanner.nextLine();
@@ -71,7 +93,7 @@ public class MenuView {
         }
     }
 
-    private LocalTime getHora(String tipo){
+    public LocalTime getHora(String tipo){
         while (true){
             System.out.println("Digite a hora de " + tipo + " (HH:mm): ");
             String horaStr = scanner.nextLine();
@@ -89,7 +111,7 @@ public class MenuView {
 
     }
 
-    private int getInteiro(String tipo){
+    public int getInteiro(String tipo){
         while (true) {
             System.out.println("Digite " + tipo + ": ");
             String inteiroStr = scanner.nextLine().trim();
@@ -111,7 +133,7 @@ public class MenuView {
         }
     }
 
-    private double getNumeroReal(String tipo) {
+    public double getNumeroReal(String tipo) {
         while (true){
             System.out.println("Digite " + tipo + ": ");
             String numeroRealStr = scanner.nextLine().trim();
