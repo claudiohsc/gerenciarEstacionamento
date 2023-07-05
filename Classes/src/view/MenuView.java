@@ -102,14 +102,20 @@ public class MenuView {
                 return null;
             }
 
+            // Adicionar um 0 se a hora tiver um único dígito
+            if (horaStr.length() == 4 && horaStr.charAt(1) == ':') {
+                horaStr = "0" + horaStr;
+            }
+
             try {
                 return LocalTime.parse(horaStr, timeFormatter);
             } catch (Exception e){
                 System.out.println("Hora inválida. Tente novamente.");
+                System.out.println("Erro: " + e.getMessage());
             }
         }
-
     }
+
 
     public int getInteiro(String tipo){
         while (true) {
@@ -174,13 +180,19 @@ public class MenuView {
     	int lotacaoAtual = getInteiro("a Lotação Atual");
     	double taxaDeFracao = getNumeroReal("a Taxa de Fração 15 minutos");
     	double taxaDeHora = getNumeroReal("a Taxa de Hora Cheia");
+        double descontoPorHora = getNumeroReal("o Desconto Por Hora");
     	double taxaDeDiaria = getNumeroReal("a Taxa de Diária Diurna");
     	double taxaNoturna = getNumeroReal("a Taxa de Diária Noturna (em %)");
     	double taxaMensal = getNumeroReal("a Taxa Mensal");
     	double taxaDeEvento = getNumeroReal("a Taxa de Evento");
-    	
-    	return new Estacionamento(nome, localizacao, lotacaoMaxima, lotacaoAtual, taxaDeFracao,
-    			taxaDeHora, taxaDeDiaria, taxaNoturna, taxaMensal, taxaDeEvento);
+        LocalTime horarioAberturaDiurno = getHora("de abertura do horário diurno");
+        LocalTime horarioFechamentoDiurno = getHora("de fechamento do horário diurno");
+        LocalTime horarioAberturaNoturno = getHora("de abertura do horário noturno");
+        LocalTime horarioFechamentoNoturno = getHora("de fechamento do horário noturno");
+
+        return new Estacionamento(nome, localizacao, lotacaoMaxima, lotacaoAtual, taxaDeFracao,
+                taxaDeHora, descontoPorHora, taxaDeDiaria, taxaNoturna, taxaMensal, taxaDeEvento, horarioAberturaDiurno,
+                horarioFechamentoDiurno, horarioAberturaNoturno, horarioFechamentoNoturno);
     }
     
  // Acesso do Evento!!
@@ -204,9 +216,23 @@ public class MenuView {
         }
     }
 
-    public void printExceptionMessage(ObjetoNaoEncontradoException e) {
-        System.out.println(e.getMessage());
+    public boolean isEvento() {
+        while (true){
+            System.out.println("O acesso é para um evento? (s/n): ");
+            String resposta = scanner.nextLine().trim().toLowerCase();
+
+            if (resposta.equals("s")) {
+                return true;
+            } else if (resposta.equals("n")) {
+                return false;
+            } else {
+                System.out.println("Resposta inválida. Por favor, digite 's' para sim ou 'n' para não.");
+            }
+        }
     }
 
+    public void printExceptionMessage(Exception e) {
+        System.out.println(e.getMessage());
+    }
 
 }

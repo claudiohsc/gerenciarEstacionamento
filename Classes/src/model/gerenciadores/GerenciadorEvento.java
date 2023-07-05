@@ -18,10 +18,4 @@ public class GerenciadorEvento extends Gerenciador<Evento>{
     public void alterar(Evento evento) {
         registros.put(evento.getNome(), evento);
     }
-
-    @Override
-    public boolean excluir(String nomeEvento) throws ObjetoNaoEncontradoException {
-        Evento evento = pesquisar(nomeEvento);
-        return registros.remove(nomeEvento, evento);
-    }
 }

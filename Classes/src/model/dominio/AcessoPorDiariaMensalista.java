@@ -9,7 +9,14 @@ public class AcessoPorDiariaMensalista extends Acesso{
     }
 
     @Override
-    public double calcularTarifa(){
-        return 0;
+    public double calcularTarifa() {
+        Estacionamento estacionamento = this.getEstacionamento();
+        if (estacionamento == null) {
+            throw new RuntimeException("Estacionamento não definido para este acesso");
+        }
+
+        // Retorna a tarifa mensalista do estacionamento
+        return estacionamento.getTaxaMensal();
     }
+
 }

@@ -10,6 +10,7 @@ public class Acesso {
 	private LocalDate dataSaida;
 	private LocalTime horaEntrada;
 	private LocalTime horaSaida;
+	private Estacionamento estacionamento;
 
 	public Acesso(String placa, LocalDate dataEntrada, LocalDate dataSaida, LocalTime horaEntrada, LocalTime horaSaida) {
 		this.placa = placa;
@@ -64,6 +65,14 @@ public class Acesso {
 		this.horaSaida = horaSaida;
 	}
 
+	public Estacionamento getEstacionamento() {
+		return estacionamento;
+	}
+
+	public void setEstacionamento(Estacionamento estacionamento) {
+		this.estacionamento = estacionamento;
+	}
+
 	@Override
 	public String toString(){
 		return "Acesso {" +
@@ -72,6 +81,28 @@ public class Acesso {
 				", dataSaida=" + this.getDataSaida() +
 				", horaEntrada='" + this.getHoraEntrada() + '\'' +
 				", horaSaida='" + this.getHoraSaida() + '\'' +
+				", estacionamento='" + this.getEstacionamento().getNome() + '\'' +
 				'}';
+	}
+
+	public void alterarDetalhes(String novaPlaca, LocalDate novaDataEntrada, LocalDate novaDataSaida, LocalTime novaHoraEntrada, LocalTime novaHoraSaida, Estacionamento novoEstacionamento) {
+		if (novaPlaca != null) {
+			this.setPlaca(novaPlaca);
+		}
+		if (novaDataEntrada != null) {
+			this.setDataEntrada(novaDataEntrada);
+		}
+		if (novaDataSaida != null) {
+			this.setDataSaida(novaDataSaida);
+		}
+		if (novaHoraEntrada != null) {
+			this.setHoraEntrada(novaHoraEntrada);
+		}
+		if (novaHoraSaida != null) {
+			this.setHoraSaida(novaHoraSaida);
+		}
+		if (novoEstacionamento != null) {
+			this.setHoraSaida(novaHoraSaida);
+		}
 	}
 }

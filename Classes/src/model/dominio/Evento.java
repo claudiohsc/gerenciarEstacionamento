@@ -69,4 +69,22 @@ public class Evento {
                 ", horaFim=" + horaFim +
                 '}';
     }
+
+    public void alterarDetalhes(String novoNomeEvento, LocalDate novaDataInicio, LocalDate novaDataFim, LocalTime novaHoraInicio, LocalTime novaHoraFim) {
+        if (novoNomeEvento != null) {
+            this.setNome(novoNomeEvento);
+        }
+        if (novaDataInicio != null) {
+            this.setDataInicio(novaDataInicio);
+        }
+        if (novaDataFim != null) {
+            this.setDataFim(novaDataFim);
+        }
+        if (novaHoraInicio != null) {
+            this.setHoraInicio(novaHoraInicio);
+        }
+        if (novaHoraFim != null) {
+            this.setHoraFim(novaHoraFim);
+        }
+    }
 }

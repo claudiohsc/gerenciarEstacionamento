@@ -9,7 +9,24 @@ public class AcessoPorHora extends Acesso{
     }
 
     @Override
-    public double calcularTarifa(){
-        return 0;
+    public double calcularTarifa() {
+        Estacionamento estacionamento = this.getEstacionamento();
+        if (estacionamento == null) {
+            throw new RuntimeException("Estacionamento não definido para este acesso");
+        }
+
+        // Calcula a duração total da estadia em horas
+        long duracao = java.time.Duration.between(this.getHoraEntrada().atDate(this.getDataEntrada()),
+                this.getHoraSaida().atDate(this.getDataSaida())).toHours();
+
+        // Tarifa por hora sem desconto
+        double tarifaSemDesconto = duracao * estacionamento.getTaxaDeHora();
+
+        // Desconto
+        double desconto = estacionamento.getDescontoPorHora() * tarifaSemDesconto;
+
+        // Retorna o valor da tarifa com desconto
+        return tarifaSemDesconto - desconto;
     }
+
 }
