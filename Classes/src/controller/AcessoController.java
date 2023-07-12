@@ -34,8 +34,18 @@ public class AcessoController{
             return;
         }
 
-        Acesso acesso = menuView.getDetalhesDeAcesso();
-        acesso.setEstacionamento(estacionamento);
+        Acesso acesso = new Acesso();
+        try {
+            acesso.setPlaca(menuView.getString("a placa do veiculo"));
+            acesso.setDataEntrada(menuView.getData("a data de entrada"));
+            acesso.setDataSaida(menuView.getData("a data de saída"));
+            acesso.setHoraEntrada(menuView.getHora("a hora de entrada"));
+            acesso.setHoraSaida(menuView.getHora("a hora de saída"));
+            acesso.setEstacionamento(estacionamento);
+        } catch (DescricaoEmBrancoException e) {
+            menuView.printExceptionMessage(e);
+            return;
+        }
 
         if (menuView.isEvento()) {
             acesso = new AcessoPorEvento(acesso.getPlaca(), acesso.getDataEntrada(),
@@ -65,52 +75,41 @@ public class AcessoController{
         return null;
     }
 
-
     public void alterar() {
         Acesso acesso = this.pesquisar();
         if (acesso != null) {
             try {
-                String novaPlaca = null;
-                LocalDate novaDataEntrada = null;
-                LocalDate novaDataSaida = null;
-                LocalTime novaHoraEntrada = null;
-                LocalTime novaHoraSaida = null;
-                Estacionamento novoEstacionamento = null;
-
                 while (true){
                     int opcaoAlterarAcesso = menuView.getOpcaoSubMenu("alteração do acesso", "1. Placa\n2. Data de Entrada" +
                             "\n3. Data de Saída\n4. Hora de Entrada\n5. Hora de Saída\n6. Estacionamento\n7. Concluir alterações");
 
                     switch (opcaoAlterarAcesso){
                         case 1:
-                            novaPlaca = menuView.getString("a nova placa do veículo");
+                            acesso.setPlaca(menuView.getString("a nova placa do veículo"));
                             break;
                         case 2:
-                            novaDataEntrada = menuView.getData("a nova data de entrada");
+                            acesso.setDataEntrada(menuView.getData("a nova data de entrada"));
                             break;
                         case 3:
-                            novaDataSaida = menuView.getData("a nova data de saída");
+                            acesso.setDataSaida(menuView.getData("a nova data de saída"));
                             break;
                         case 4:
-                            novaHoraEntrada = menuView.getHora("a nova hora de entrada");
+                            acesso.setHoraEntrada(menuView.getHora("a nova hora de entrada"));
                             break;
                         case 5:
-                            novaHoraSaida = menuView.getHora("a nova hora de saída");
+                            acesso.setHoraSaida(menuView.getHora("a nova hora de saída"));
                             break;
                         case 6:
                             String nomeNovoEstacionamento = menuView.getString("o nome do novo estacionamento");
                             try {
-                                novoEstacionamento = gerenciadorEstacionamento.pesquisar(nomeNovoEstacionamento);
+                                Estacionamento novoEstacionamento = gerenciadorEstacionamento.pesquisar(nomeNovoEstacionamento);
+                                acesso.setEstacionamento(novoEstacionamento);
                             } catch (ObjetoNaoEncontradoException e) {
                                 menuView.printExceptionMessage(e);
                                 break;
                             }
                             break;
                         case 7:
-                            acesso.alterarDetalhes(novaPlaca, novaDataEntrada, novaDataSaida, novaHoraEntrada, novaHoraSaida, novoEstacionamento);
-                            if (novoEstacionamento != null) {
-                                acesso.setEstacionamento(novoEstacionamento);
-                            }
                             acesso = gerenciadorAcesso.inferirTipoDeAcesso(acesso, acesso.getEstacionamento());
                             gerenciadorAcesso.alterar(acesso);
                             return;
@@ -119,7 +118,7 @@ public class AcessoController{
                             break;
                     }
                 }
-            } catch (ObjetoNaoEncontradoException e) {
+            } catch (DescricaoEmBrancoException e) {
                 menuView.printExceptionMessage(e);
             }
         }

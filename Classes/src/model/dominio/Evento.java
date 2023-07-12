@@ -1,5 +1,8 @@
 package model.dominio;
 
+import controller.EventoController;
+import view.DescricaoEmBrancoException;
+
 import java.time.LocalDate;
 import java.time.LocalTime;
 
@@ -10,6 +13,10 @@ public class Evento {
     private LocalDate dataFim;
     private LocalTime horaInicio;
     private LocalTime horaFim;
+
+    public Evento() {
+
+    }
 
     public Evento(String nome, LocalDate dataInicio, LocalDate dataFim, LocalTime horaInicio, LocalTime horaFim) {
         this.nome = nome;
@@ -39,23 +46,38 @@ public class Evento {
         return horaFim;
     }
 
-    public void setNome(String nome) {
+    public void setNome(String nome) throws DescricaoEmBrancoException {
+        if (nome == null || nome.trim().isEmpty()) {
+            throw new DescricaoEmBrancoException("Nome do Evento");
+        }
         this.nome = nome;
     }
 
-    public void setDataInicio(LocalDate dataInicio) {
+    public void setDataInicio(LocalDate dataInicio) throws DescricaoEmBrancoException {
+        if (dataInicio == null) {
+            throw new DescricaoEmBrancoException("Data Início");
+        }
         this.dataInicio = dataInicio;
     }
 
-    public void setDataFim(LocalDate dataFim) {
+    public void setDataFim(LocalDate dataFim) throws DescricaoEmBrancoException {
+        if (dataFim == null) {
+            throw new DescricaoEmBrancoException("Data Fim");
+        }
         this.dataFim = dataFim;
     }
 
-    public void setHoraInicio(LocalTime horaInicio) {
+    public void setHoraInicio(LocalTime horaInicio) throws DescricaoEmBrancoException {
+        if (horaInicio == null) {
+            throw new DescricaoEmBrancoException("Hora Inicio");
+        }
         this.horaInicio = horaInicio;
     }
 
-    public void setHoraFim(LocalTime horaFim) {
+    public void setHoraFim(LocalTime horaFim) throws DescricaoEmBrancoException {
+        if (horaFim == null) {
+            throw new DescricaoEmBrancoException("Hora Fim");
+        }
         this.horaFim = horaFim;
     }
 
@@ -70,21 +92,4 @@ public class Evento {
                 '}';
     }
 
-    public void alterarDetalhes(String novoNomeEvento, LocalDate novaDataInicio, LocalDate novaDataFim, LocalTime novaHoraInicio, LocalTime novaHoraFim) {
-        if (novoNomeEvento != null) {
-            this.setNome(novoNomeEvento);
-        }
-        if (novaDataInicio != null) {
-            this.setDataInicio(novaDataInicio);
-        }
-        if (novaDataFim != null) {
-            this.setDataFim(novaDataFim);
-        }
-        if (novaHoraInicio != null) {
-            this.setHoraInicio(novaHoraInicio);
-        }
-        if (novaHoraFim != null) {
-            this.setHoraFim(novaHoraFim);
-        }
-    }
 }

@@ -81,7 +81,7 @@ public class MenuView {
             System.out.println("Digite a data de " + tipo + " (dd/mm/aaaa): ");
             String dataStr = scanner.nextLine();
 
-            if (dataStr.equalsIgnoreCase("sair")){
+            if (dataStr.equalsIgnoreCase("sair") || dataStr.trim().isEmpty()){
                 return null;
             }
 
@@ -98,7 +98,7 @@ public class MenuView {
             System.out.println("Digite a hora de " + tipo + " (HH:mm): ");
             String horaStr = scanner.nextLine();
 
-            if (horaStr.equalsIgnoreCase("sair")){
+            if (horaStr.equalsIgnoreCase("sair") || horaStr.trim().isEmpty()){
                 return null;
             }
 
@@ -115,7 +115,6 @@ public class MenuView {
             }
         }
     }
-
 
     public int getInteiro(String tipo){
         while (true) {

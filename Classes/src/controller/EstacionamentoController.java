@@ -18,13 +18,27 @@ public class EstacionamentoController {
     }
 
     public void criar() {
-        Estacionamento estacionamento = menuView.getDetalhesDeEstacionamento();
+        Estacionamento estacionamento = new Estacionamento();
+
         try {
-            gerenciadorEstacionamento.criar(estacionamento);
+            estacionamento.setNome(menuView.getString("o nome do estacionamento"));
+            estacionamento.setLocalizacao(menuView.getString("a localização"));
+            estacionamento.setLotacaoMaxima(menuView.getInteiro("a lotação máxima"));
+            estacionamento.setTaxaDeFracao(menuView.getNumeroReal("a taxa de fração"));
+            estacionamento.setTaxaDeHora(menuView.getNumeroReal("a taxa de hora cheia"));
+            estacionamento.setTaxaDeDiaria(menuView.getNumeroReal("a taxa de diária"));
+            estacionamento.setTaxaNoturna(menuView.getNumeroReal("a taxa noturna"));
+            estacionamento.setTaxaMensal(menuView.getNumeroReal("a taxa mensal"));
+            estacionamento.setTaxaDeEvento(menuView.getNumeroReal("a taxa de evento"));
+            estacionamento.setHorarioAberturaDiurno(menuView.getHora("o horário de abertura diurno"));
+            estacionamento.setHorarioFechamentoDiurno(menuView.getHora("o horário de fechamento diurno"));
+            estacionamento.setHorarioAberturaNoturno(menuView.getHora("o horário de abertura noturno"));
+            estacionamento.setHorarioFechamentoNoturno(menuView.getHora("o horário de fechamento noturno"));
         } catch (DescricaoEmBrancoException e) {
             menuView.printExceptionMessage(e);
         }
     }
+
 
     public void pesquisar() {
         String nomeEstacionamento = menuView.getString("o nome do estacionamento para pesquisa");
@@ -41,87 +55,69 @@ public class EstacionamentoController {
         Estacionamento estacionamento = gerenciadorEstacionamento.pesquisar(nomeEstacionamento);
 
         if (estacionamento != null) {
-            String novoNomeEstacionamento = null;
-            String novaLocalizacao = null;
-            Integer novaLotacaoMaxima = null;
-            Integer novaLotacaoAtual = null;
-            Double novaTaxaDeFracao = null;
-            Double novaTaxaDeHora = null;
-            Double novoDescontoPorHora = null;
-            Double novaTaxaDeDiaria = null;
-            Double novaTaxaNoturna = null;
-            Double novaTaxaMensal = null;
-            Double novaTaxaDeEvento = null;
-            LocalTime novoHorarioAberturaDiurno = null;
-            LocalTime novoHorarioFechamentoDiurno = null;
-            LocalTime novoHorarioAberturaNoturno = null;
-            LocalTime novoHorarioFechamentoNoturno = null;
-
             while (true){
-                int opcaoAlterarEstacionamento = menuView.getOpcaoSubMenu("alteração do estacionamento",
-                        "1. Nome do Estacionamento\n2. Localização\n3. Lotação Máxima\n4. Lotação Atual\n5. Taxa de Fração (15 minutos)" +
-                                "\n6. Hora Cheia\n7. Desconto Por Hora\n8. Diária Diruna\n9. Diária Noturna\n10. Taxa Mensal\n11. Taxa de Evento" +
-                                "\n12. Horário de Abertura Diurno\n13. Horário de Fechamento Diurno\n14. Horário de Abertura Noturno" +
-                                "\n15. Horário de Fechamento Noturno\n16. Concluir alterações");
+                try {
+                    int opcaoAlterarEstacionamento = menuView.getOpcaoSubMenu("alteração do estacionamento",
+                            "1. Nome do Estacionamento\n2. Localização\n3. Lotação Máxima\n4. Lotação Atual\n5. Taxa de Fração (15 minutos)" +
+                                    "\n6. Hora Cheia\n7. Desconto Por Hora\n8. Diária Diruna\n9. Diária Noturna\n10. Taxa Mensal\n11. Taxa de Evento" +
+                                    "\n12. Horário de Abertura Diurno\n13. Horário de Fechamento Diurno\n14. Horário de Abertura Noturno" +
+                                    "\n15. Horário de Fechamento Noturno\n16. Concluir alterações");
 
-                switch (opcaoAlterarEstacionamento){
-                    case 1:
-                        novoNomeEstacionamento = menuView.getString("o novo nome do estacionamento");
-                        break;
-                    case 2:
-                        novaLocalizacao = menuView.getString("a nova localização");
-                        break;
-                    case 3:
-                        novaLotacaoMaxima = menuView.getInteiro("a nova lotação máxima");
-                        break;
-                    case 4:
-                        novaLotacaoAtual = menuView.getInteiro("a nova lotação atual");
-                        break;
-                    case 5:
-                        novaTaxaDeFracao = menuView.getNumeroReal("a nova taxa de fração 15 minutos");
-                        break;
-                    case 6:
-                        novaTaxaDeHora = menuView.getNumeroReal("a nova taxa de hora cheia");
-                        break;
-                    case 7:
-                        novoDescontoPorHora = menuView.getNumeroReal("a nova taxa de desconto por hora");
-                        break;
-                    case 8:
-                        novaTaxaDeDiaria = menuView.getNumeroReal("a nova taxa de diária diurna");
-                        break;
-                    case 9:
-                        novaTaxaNoturna = menuView.getNumeroReal("a nova taxa de diária noturna");
-                        break;
-                    case 10:
-                        novaTaxaMensal = menuView.getNumeroReal("a nova taxa mensal");
-                        break;
-                    case 11:
-                        novaTaxaDeEvento = menuView.getNumeroReal("a nova taxa de evento");
-                        break;
-                    case 12:
-                        novoHorarioAberturaDiurno = menuView.getHora("de abertura diurna do estacionamento");
-                        break;
-                    case 13:
-                        novoHorarioFechamentoDiurno = menuView.getHora("de fechamento diurna do estacionamento");
-                        break;
-                    case 14:
-                        novoHorarioAberturaNoturno = menuView.getHora("de abertura noturna do estacionamento");
-                        break;
-                    case 15:
-                        novoHorarioFechamentoNoturno = menuView.getHora("de fechamento noturna do estacionamento");
-                        break;
-                    case 16:
-                        estacionamento.alterarDetalhes(novoNomeEstacionamento,
-                                novaLocalizacao, novaLotacaoMaxima, novaLotacaoAtual,
-                                novaTaxaDeFracao, novaTaxaDeHora, novoDescontoPorHora, novaTaxaDeDiaria,
-                                novaTaxaNoturna, novaTaxaMensal, novaTaxaDeEvento,
-                                novoHorarioAberturaDiurno, novoHorarioFechamentoDiurno,
-                                novoHorarioAberturaNoturno, novoHorarioFechamentoNoturno);
-                        gerenciadorEstacionamento.alterar(estacionamento);
-                        return;
-                    default:
-                        menuView.printOpcaoInvalida();
-                        break;
+                    switch (opcaoAlterarEstacionamento){
+                        case 1:
+                            estacionamento.setNome(menuView.getString("o novo nome do estacionamento"));
+                            break;
+                        case 2:
+                            estacionamento.setLocalizacao(menuView.getString("a nova localização"));
+                            break;
+                        case 3:
+                            estacionamento.setLotacaoMaxima(menuView.getInteiro("a nova lotação máxima"));
+                            break;
+                        case 4:
+                            estacionamento.setLotacaoAtual(menuView.getInteiro("a nova lotação atual"));
+                            break;
+                        case 5:
+                            estacionamento.setTaxaDeFracao(menuView.getNumeroReal("a nova taxa de fração 15 minutos"));
+                            break;
+                        case 6:
+                            estacionamento.setTaxaDeHora(menuView.getNumeroReal("a nova taxa de hora cheia"));
+                            break;
+                        case 7:
+                            estacionamento.setDescontoPorHora(menuView.getNumeroReal("a nova taxa de desconto por hora"));
+                            break;
+                        case 8:
+                            estacionamento.setTaxaDeDiaria(menuView.getNumeroReal("a nova taxa de diária diurna"));
+                            break;
+                        case 9:
+                            estacionamento.setTaxaNoturna(menuView.getNumeroReal("a nova taxa de diária noturna"));
+                            break;
+                        case 10:
+                            estacionamento.setTaxaMensal(menuView.getNumeroReal("a nova taxa mensal"));
+                            break;
+                        case 11:
+                            estacionamento.setTaxaDeEvento(menuView.getNumeroReal("a nova taxa de evento"));
+                            break;
+                        case 12:
+                            estacionamento.setHorarioAberturaDiurno(menuView.getHora("de abertura diurna do estacionamento"));
+                            break;
+                        case 13:
+                            estacionamento.setHorarioFechamentoDiurno(menuView.getHora("de fechamento diurna do estacionamento"));
+                            break;
+                        case 14:
+                            estacionamento.setHorarioAberturaNoturno(menuView.getHora("de abertura noturna do estacionamento"));
+                            break;
+                        case 15:
+                            estacionamento.setHorarioFechamentoNoturno(menuView.getHora("de fechamento noturna do estacionamento"));
+                            break;
+                        case 16:
+                            gerenciadorEstacionamento.alterar(estacionamento);
+                            return;
+                        default:
+                            menuView.printOpcaoInvalida();
+                            break;
+                    }
+                } catch (DescricaoEmBrancoException e) {
+                    menuView.printExceptionMessage(e);
                 }
             }
         }

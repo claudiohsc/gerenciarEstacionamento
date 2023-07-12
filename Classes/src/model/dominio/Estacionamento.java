@@ -1,5 +1,7 @@
 package model.dominio;
 
+import view.DescricaoEmBrancoException;
+
 import java.time.LocalTime;
 import java.util.List;
 
@@ -94,7 +96,10 @@ public class Estacionamento {
 		return veiculos;
 	}
 
-	public void setNome(String nome) {
+	public void setNome(String nome) throws DescricaoEmBrancoException {
+		if (nome == null || nome.trim().isEmpty()) {
+			throw new DescricaoEmBrancoException("Nome do Estacionamento");
+		}
 		this.nome = nome;
 	}
 
@@ -102,7 +107,10 @@ public class Estacionamento {
 		this.localizacao = localizacao;
 	}
 
-	public void setLotacaoMaxima(int lotacaoMaxima) {
+	public void setLotacaoMaxima(int lotacaoMaxima) throws DescricaoEmBrancoException {
+		if (lotacaoMaxima == 0) {
+			throw new DescricaoEmBrancoException("Lotação Máxima");
+		}
 		this.lotacaoMaxima = lotacaoMaxima;
 	}
 
@@ -110,27 +118,45 @@ public class Estacionamento {
 		this.lotacaoAtual = lotacaoAtual;
 	}
 
-	public void setTaxaDeFracao(double taxaDeFracao) {
+	public void setTaxaDeFracao(double taxaDeFracao) throws DescricaoEmBrancoException {
+		if (taxaDeFracao == 0) {
+			throw new DescricaoEmBrancoException("Taxa de Fração");
+		}
 		this.taxaDeFracao = taxaDeFracao;
 	}
 
-	public void setTaxaDeHora(double taxaDeHora) {
+	public void setTaxaDeHora(double taxaDeHora) throws DescricaoEmBrancoException {
+		if (taxaDeHora == 0) {
+			throw new DescricaoEmBrancoException("Taxa de Hora Cheia");
+		}
 		this.taxaDeHora = taxaDeHora;
 	}
 
-	public void setTaxaDeDiaria(double taxaDeDiaria) {
+	public void setTaxaDeDiaria(double taxaDeDiaria) throws DescricaoEmBrancoException {
+		if (taxaDeDiaria == 0) {
+			throw new DescricaoEmBrancoException("Taxa de Diária");
+		}
 		this.taxaDeDiaria = taxaDeDiaria;
 	}
 
-	public void setTaxaNoturna(double taxaNoturna) {
+	public void setTaxaNoturna(double taxaNoturna) throws DescricaoEmBrancoException {
+		if (taxaNoturna == 0) {
+			throw new DescricaoEmBrancoException("Taxa Noturna");
+		}
 		this.taxaNoturna = taxaNoturna;
 	}
 
-	public void setTaxaMensal(double taxaMensal) {
+	public void setTaxaMensal(double taxaMensal) throws DescricaoEmBrancoException {
+		if (taxaMensal == 0) {
+			throw new DescricaoEmBrancoException("Taxa Mensal");
+		}
 		this.taxaMensal = taxaMensal;
 	}
 
-	public void setTaxaDeEvento(double taxaDeEvento) {
+	public void setTaxaDeEvento(double taxaDeEvento) throws DescricaoEmBrancoException {
+		if (taxaDeEvento == 0) {
+			throw new DescricaoEmBrancoException("Taxa de Evento");
+		}
 		this.taxaDeEvento = taxaDeEvento;
 	}
 
@@ -142,7 +168,10 @@ public class Estacionamento {
 		return horarioAberturaDiurno;
 	}
 
-	public void setHorarioAberturaDiurno(LocalTime horarioAberturaDiurno) {
+	public void setHorarioAberturaDiurno(LocalTime horarioAberturaDiurno) throws DescricaoEmBrancoException {
+		if (horarioAberturaDiurno == null) {
+			throw new DescricaoEmBrancoException("Horário de Abertura Diurno");
+		}
 		this.horarioAberturaDiurno = horarioAberturaDiurno;
 	}
 
@@ -150,7 +179,10 @@ public class Estacionamento {
 		return horarioFechamentoDiurno;
 	}
 
-	public void setHorarioFechamentoDiurno(LocalTime horarioFechamentoDiurno) {
+	public void setHorarioFechamentoDiurno(LocalTime horarioFechamentoDiurno) throws DescricaoEmBrancoException {
+		if (horarioFechamentoDiurno == null) {
+			throw new DescricaoEmBrancoException("Horário de Fechamento Diurno");
+		}
 		this.horarioFechamentoDiurno = horarioFechamentoDiurno;
 	}
 
@@ -158,7 +190,10 @@ public class Estacionamento {
 		return horarioAberturaNoturno;
 	}
 
-	public void setHorarioAberturaNoturno(LocalTime horarioAberturaNoturno) {
+	public void setHorarioAberturaNoturno(LocalTime horarioAberturaNoturno) throws DescricaoEmBrancoException {
+		if (horarioAberturaNoturno == null) {
+			throw new DescricaoEmBrancoException("Horário de Abertura Noturno");
+		}
 		this.horarioAberturaNoturno = horarioAberturaNoturno;
 	}
 
@@ -166,7 +201,10 @@ public class Estacionamento {
 		return horarioFechamentoNoturno;
 	}
 
-	public void setHorarioFechamentoNoturno(LocalTime horarioFechamentoNoturno) {
+	public void setHorarioFechamentoNoturno(LocalTime horarioFechamentoNoturno) throws DescricaoEmBrancoException {
+		if (horarioFechamentoNoturno == null) {
+			throw new DescricaoEmBrancoException("Horário de Fechamento Noturno");
+		}
 		this.horarioFechamentoNoturno = horarioFechamentoNoturno;
 	}
 
@@ -197,59 +235,6 @@ public class Estacionamento {
 				", horarioAberturaNoturno=" + this.getHorarioAberturaNoturno() +
 				", horarioFechamentoNoturno=" + this.getHorarioFechamentoNoturno() +
 				'}';
-	}
-
-	public void alterarDetalhes(String novoNomeEstacionamento, String novaLocalizacao, Integer novaLotacaoMaxima,
-								Integer novaLotacaoAtual, Double novaTaxaDeFracao, Double novaTaxaDeHora, Double novoDescontoPorHora,
-								Double novaTaxaDeDiaria, Double novaTaxaNoturna, Double novaTaxaMensal,
-								Double novaTaxaDeEvento, LocalTime novoHorarioAberturaDiurno,
-								LocalTime novoHorarioFechamentoDiurno, LocalTime novoHorarioAberturaNoturno,
-								LocalTime novoHorarioFechamentoNoturno) {
-		if (novoNomeEstacionamento != null) {
-			this.setNome(novoNomeEstacionamento);
-		}
-		if (novaLocalizacao != null) {
-			this.setLocalizacao(novaLocalizacao);
-		}
-		if (novaLotacaoMaxima != null) {
-			this.setLotacaoMaxima(novaLotacaoMaxima);
-		}
-		if (novaLotacaoAtual != null) {
-			this.setLotacaoAtual(novaLotacaoAtual);
-		}
-		if (novaTaxaDeFracao != null) {
-			this.setTaxaDeFracao(novaTaxaDeFracao);
-		}
-		if (novaTaxaDeHora != null) {
-			this.setTaxaDeHora(novaTaxaDeHora);
-		}
-		if (novoDescontoPorHora != null) {
-			this.setDescontoPorHora(novoDescontoPorHora);
-		}
-		if (novaTaxaDeDiaria != null) {
-			this.setTaxaDeDiaria(novaTaxaDeDiaria);
-		}
-		if (novaTaxaNoturna != null) {
-			this.setTaxaNoturna(novaTaxaNoturna);
-		}
-		if (novaTaxaMensal != null) {
-			this.setTaxaMensal(novaTaxaMensal);
-		}
-		if (novaTaxaDeEvento != null) {
-			this.setTaxaDeEvento(novaTaxaDeEvento);
-		}
-		if (novoHorarioAberturaDiurno != null) {
-			this.setHorarioAberturaDiurno(novoHorarioAberturaDiurno);
-		}
-		if (novoHorarioFechamentoDiurno != null) {
-			this.setHorarioFechamentoDiurno(novoHorarioFechamentoDiurno);
-		}
-		if (novoHorarioAberturaNoturno != null) {
-			this.setHorarioAberturaNoturno(novoHorarioAberturaNoturno);
-		}
-		if (novoHorarioFechamentoNoturno != null) {
-			this.setHorarioFechamentoNoturno(novoHorarioFechamentoNoturno);
-		}
 	}
 
 }
