@@ -6,12 +6,7 @@ import view.ObjetoNaoEncontradoException;
 
 public class GerenciadorEstacionamento extends Gerenciador<Estacionamento>{
     @Override
-    public void criar(Estacionamento estacionamento) throws DescricaoEmBrancoException {
-
-        if (estacionamento.getLotacaoMaxima() == 0 || estacionamento.getTaxaDeFracao() == 0.0 || estacionamento.getTaxaDeHora() == 0.0
-                || estacionamento.getTaxaDeDiaria() == 0.0 || estacionamento.getTaxaNoturna() == 0.0) {
-            throw new DescricaoEmBrancoException("Os campos obirgatórios não foram preenchidos.");
-        }
+    public void criar(Estacionamento estacionamento) {
         registros.put(estacionamento.getNome(), estacionamento);
     }
 

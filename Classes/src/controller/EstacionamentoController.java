@@ -37,6 +37,8 @@ public class EstacionamentoController {
         } catch (DescricaoEmBrancoException e) {
             menuView.printExceptionMessage(e);
         }
+
+        gerenciadorEstacionamento.criar(estacionamento);
     }
 
 

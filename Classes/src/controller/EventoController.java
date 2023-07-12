@@ -28,7 +28,7 @@ public class EventoController {
         } catch (DescricaoEmBrancoException e) {
             menuView.printExceptionMessage(e);
         }
-
+        gerenciadorEvento.criar(evento);
     }
 
     public void pesquisar() {

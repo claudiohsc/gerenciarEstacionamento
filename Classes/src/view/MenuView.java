@@ -116,7 +116,7 @@ public class MenuView {
         }
     }
 
-    public int getInteiro(String tipo){
+    public int getInteiro(String tipo) throws ValorAcessoInvalidoException{
         while (true) {
             System.out.println("Digite " + tipo + ": ");
             String inteiroStr = scanner.nextLine().trim();
@@ -127,18 +127,18 @@ public class MenuView {
 
             try {
                 int inteiro = Integer.parseInt(inteiroStr);
-                if (inteiro >= 0){
+                if (inteiro > 0){
                     return inteiro;
                 } else {
-                    System.out.println("Por favor, insira um número inteiro positivo.");
+                    throw new ValorAcessoInvalidoException("Valor de acesso inválido. Tente novamente");
                 }
-            } catch (NumberFormatException e){
-                System.out.println("Entrada inválida. Tente novamente.");
+            } catch (ValorAcessoInvalidoException e){
+                printExceptionMessage(e);
             }
         }
     }
 
-    public double getNumeroReal(String tipo) {
+    public double getNumeroReal(String tipo) throws ValorAcessoInvalidoException {
         while (true){
             System.out.println("Digite " + tipo + ": ");
             String numeroRealStr = scanner.nextLine().trim();
@@ -149,13 +149,13 @@ public class MenuView {
 
             try {
                 double numeroReal = Double.parseDouble(numeroRealStr);
-                if (numeroReal >= 0) {
+                if (numeroReal > 0) {
                     return numeroReal;
                 } else {
-                    System.out.println("Por favor, insira um número real positivo.");
+                    throw new ValorAcessoInvalidoException("Valor de acesso inválido. Tente novamente");
                 }
-            } catch (NumberFormatException e) {
-                System.out.println("Entrada inválida. Tente novamente.");
+            } catch (ValorAcessoInvalidoException e) {
+                printExceptionMessage(e);
             }
         }
     }

@@ -9,7 +9,7 @@ import java.util.Map;
 public abstract class Gerenciador<T> {
     protected Map<String, T> registros = new HashMap<>();
 
-    public abstract void criar(T t) throws DescricaoEmBrancoException;
+    public abstract void criar(T t);
     public T pesquisar(String campo){
         T objeto = registros.get(campo);
         if (objeto == null) {

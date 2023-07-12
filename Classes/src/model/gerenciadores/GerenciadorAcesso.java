@@ -9,13 +9,9 @@ import java.time.LocalTime;
 
 public class GerenciadorAcesso extends Gerenciador<Acesso>{
     @Override
-    public void criar(Acesso acesso) throws DescricaoEmBrancoException {
+    public void criar(Acesso acesso)  {
         Estacionamento estacionamento = acesso.getEstacionamento();
         acesso = this.inferirTipoDeAcesso(acesso, estacionamento);
-        if (acesso.getPlaca() == null || acesso.getDataEntrada() == null || acesso.getDataSaida() == null
-            || acesso.getHoraEntrada() == null || acesso.getHoraSaida() == null ){
-            throw new DescricaoEmBrancoException("Campos obrigatórios não foram informados.");
-        }
         registros.put(acesso.getPlaca(), acesso);
     }
 

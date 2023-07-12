@@ -53,11 +53,7 @@ public class AcessoController{
             acesso.setEstacionamento(estacionamento);
         }
 
-        try {
-            gerenciadorAcesso.criar(acesso);
-        } catch (DescricaoEmBrancoException e) {
-            menuView.printExceptionMessage(e);
-        }
+        gerenciadorAcesso.criar(acesso);
     }
 
     public Acesso pesquisar() {
